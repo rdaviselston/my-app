@@ -1,20 +1,20 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import { Navbar } from "./components/shared";
+import Navbar from "./components/shared";
 
-const activeStyle = {
-  fontweight: "bold",
-  color: "red",
-};
+const HeroImage = () => (
+  <div className="hero-image">
+    <img src="hero.png" alt="hero" />
+  </div>
+);
 
 function App() {
   return (
     <div className="AppLanding">
+      <HeroImage />
       <h1>This is just a holding page, May remove</h1>
-      <Router>
-        <Navbar />
-      </Router>
+
+      <Navbar />
     </div>
   );
 }

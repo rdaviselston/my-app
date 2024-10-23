@@ -4,10 +4,15 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import Home from "./components/home";
-import About from "./components/about";
-import Resume from "./components/resume";
-import Portfolio from "./components/portfolio";
+import Home from "./home";
+import About from "./about";
+import Resume from "./resume";
+import Portfolio from "./portfolio";
+
+const activeStyle = {
+  fontweight: "bold",
+  color: "red",
+};
 
 function NavLi(props) {
   return (
@@ -25,18 +30,21 @@ function NavLi(props) {
 function NavBar() {
   return (
     <div>
-      <ul>
-        <NavLi to="/" text="Home" />
-        <NavLi to="/about" text="About" />
-        <NavLi to="/Resume" text="Resume" />
-        <NavLi to="/Porfolio" text="Portfolio" />
-      </ul>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-      </Routes>
+      <Router>
+        <ul>
+          <NavLi to="/" text="Home" />
+          <NavLi to="/about" text="About" />
+          <NavLi to="/resume" text="Resume" />
+          <NavLi to="/portfolio" text="Portfolio" />
+        </ul>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
+export default NavBar;
